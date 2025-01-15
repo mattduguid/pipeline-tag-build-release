@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # allow manual triggering
 
 permissions:
-  contents: write # Grant write access to contents for pushing tags
+  contents: write # grant write access to github actions to commit
 
 jobs:
   tag:
@@ -13,14 +13,14 @@ jobs:
 
   build:
     name: Workflow Build
-    needs: tag # depends on the Workflow Tag
+    needs: tag
     uses: ./.github/workflows/build.yml
     with:
-      tag: ${{ needs.tag.outputs.tag }} # Pass tag output to Build Stage
+      tag: ${{ needs.tag.outputs.tag }} # pass tag output to Build Stage
 
   release:
     name: Workflow Release
-    needs: build # depends on the Workflow Build
+    needs: [tag, build] 
     uses: ./.github/workflows/release.yml
     with:
-      tag: ${{ needs.tag.outputs.tag }} # Pass tag output to Release Stage
+      tag: ${{ needs.tag.outputs.tag }} # pass tag output to Release Stage
