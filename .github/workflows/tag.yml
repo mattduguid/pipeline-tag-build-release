@@ -1,0 +1,25 @@
+name: Tag Workflow
+
+on:
+  workflow_call:
+    outputs:
+      tag:
+        description: "The generated tag version"
+        value: ${{ jobs.tag.outputs.tag }}
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.generate-tag.outputs.tag }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Generate Tag
+        id: generate-tag
+        run: |
+          version="v1.0.0-${{ github.run_number }}"
+          echo "tag=$version" >> $GITHUB_ENV
+          echo "::set-output name=tag::$version"
