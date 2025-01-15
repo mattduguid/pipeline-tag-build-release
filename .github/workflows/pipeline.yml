@@ -3,6 +3,9 @@ name: Pipeline Main
 on:
   workflow_dispatch: # allow manual triggering
 
+permissions:
+  contents: write # Grant write access to contents for pushing tags
+
 jobs:
   tag:
     name: Workflow Tag
