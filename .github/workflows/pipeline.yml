@@ -1,19 +1,19 @@
-name: Main Pipeline
+name: Pipeline Main
 
 on:
   workflow_dispatch: # allow manual triggering
 
 jobs:
   tag:
-    name: Tag Stage
-    uses: ./.github/workflows/tag.yml # workflow tag
+    name: Workflow Tag
+    uses: ./.github/workflows/tag.yml
 
   build:
-    name: Build Stage
-    needs: tag # depends on the Tag Stage
-    uses: ./.github/workflows/build.yml # workflow build
+    name: Workflow Build
+    needs: tag # depends on the Workflow Tag
+    uses: ./.github/workflows/build.yml
 
   release:
-    name: Release Stage
-    needs: build # depends on the Build stage
-    uses: ./.github/workflows/release.yml # workflow release
+    name: Workflow Release
+    needs: build # depends on the Workflow Build
+    uses: ./.github/workflows/release.yml

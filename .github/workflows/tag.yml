@@ -1,4 +1,4 @@
-name: Tag Workflow
+name: Workflow Tag
 
 on:
   workflow_call:
