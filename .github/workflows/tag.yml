@@ -6,7 +6,10 @@ on:
       tag:
         description: "The generated tag version"
         value: ${{ jobs.tag.outputs.tag }}
-
+  push: # prevents triggering it independently, use pipeline.yml
+    branches-ignore:
+      - '**'
+  
 jobs:
   tag:
     runs-on: ubuntu-latest
