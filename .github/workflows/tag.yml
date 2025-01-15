@@ -24,4 +24,6 @@ jobs:
         id: generate-tag
         run: |
           version="v1.0.0-${{ github.run_number }}"
-          echo "$version" > $GITHUB_ENV_TAG_FILE
+          echo "tag=$version" >> $GITHUB_ENV
+        env:
+          version: "v1.0.0-${{ github.run_number }}"
