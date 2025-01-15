@@ -1,15 +1,33 @@
 # pipeline-tag-build-release
 
+## description
+
 example pipeline to release a container to cloud with infrastructure provisioned with terraform
 
-## stage: tag
+- workflow: tag
+  - generate a unique tag for container tag, terraform, etc
+- workflow: build
+  - build container and push to container registry
+- workflow: release
+  - release infrastructure as code terraform and pull container from container registry
 
-- generate a unique tag for container tag, terraform, etc
+## running
 
-## stage: build
+## UI
 
-- build container and push to container registry
+https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml
 
-## stage release
+## API
 
-- release infrastructure as code terraform and pull container from container registry
+- verb/url
+  - POST https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml/dispatches
+- headers
+  - Accept: application/vnd.github+json
+  - Authorization: token <PAT_TOKEN>
+- body
+```json
+{
+  "ref": "main",
+  "inputs": {}
+}
+```
