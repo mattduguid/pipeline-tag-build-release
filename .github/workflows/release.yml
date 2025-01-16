@@ -13,6 +13,8 @@ on:
 
 jobs:
   release:
+    # example context variables
+    if: github.ref == 'refs/heads/main' 
     runs-on: ubuntu-latest
 
     steps:
@@ -22,3 +24,15 @@ jobs:
       - name: Print Tag
         run: |
           echo "Releasing project with tag ${{ inputs.tag }}"
+
+      # example default environment variables
+      - name: example default environment variables
+        run: |
+          echo "GITHUB_REF = $GITHUB_REF" 
+
+      # example custom environment variables
+      - name: example custom environment variables
+        run: |
+          echo "Hello $First_Name"
+        env:
+          First_Name: Matt
