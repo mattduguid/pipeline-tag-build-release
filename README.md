@@ -9,7 +9,7 @@ example pipeline to release a container to cloud with infrastructure provisioned
 - workflow: build
   - build container and push to container registry
 - workflow: release
-  - release infrastructure as code terraform and pull container from container registry
+  - release infrastructure as code using terraform and pull container from container registry
 
 ## running
 
