@@ -1,5 +1,9 @@
 # pipeline-tag-build-release
 
+## status
+
+[![Pipeline Main](https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml/badge.svg)](https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml)
+
 ## description
 
 example pipeline to release a container to cloud with infrastructure provisioned with terraform
