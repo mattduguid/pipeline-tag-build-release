@@ -15,14 +15,15 @@ example pipeline to release a container to cloud with infrastructure provisioned
 - workflow: release
   - release infrastructure as code using terraform and pull container from container registry
 
-## running
-
 ## UI
+
+### workflow run and runs
 
 https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml
 
 ## API
 
+### workflow run
 - verb/url
   - POST https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml/dispatches
 - headers
@@ -35,3 +36,11 @@ https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipel
   "inputs": {}
 }
 ```
+
+### workflow runs
+
+- verb/url
+  - GET https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/runs
+- headers
+  - Accept: application/vnd.github+json
+  - Authorization: token <PAT_TOKEN>
