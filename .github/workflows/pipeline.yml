@@ -1,7 +1,14 @@
 name: Pipeline Main
 
 on:
-  workflow_dispatch: # allow manual triggering
+  # allow manual triggering
+  workflow_dispatch:
+
+  # triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 permissions:
   contents: write # grant write access to github actions to commit
