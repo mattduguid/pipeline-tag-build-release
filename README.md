@@ -23,7 +23,7 @@ https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipel
 
 ## API
 
-### workflow run
+### workflow run execute
 - verb/url
   - POST https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml/dispatches
 - headers
@@ -37,10 +37,18 @@ https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipel
 }
 ```
 
-### workflow runs
+### workflow runs view
 
 - verb/url
   - GET https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/runs
+- headers
+  - Accept: application/vnd.github+json
+  - Authorization: token <PAT_TOKEN>
+
+### workflow run delete
+
+- verb/url
+  - DELETE https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/runs/{run_id}
 - headers
   - Accept: application/vnd.github+json
   - Authorization: token <PAT_TOKEN>
