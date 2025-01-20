@@ -1,8 +1,6 @@
-# pipeline-tag-build-release
-
-## status
-
 [![Pipeline Main](https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml/badge.svg)](https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml)
+
+# pipeline-tag-build-release
 
 ## description
 
