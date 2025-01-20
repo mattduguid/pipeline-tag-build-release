@@ -6,6 +6,7 @@
 - [pass artifact data between jobs](#pass-artifact-data-between-jobs)
 - [enable step debug logging in a workflow](#enable-step-debug-logging-in-a-workflow)
 - [use variables and secrets and environments](#use-variables-and-secrets-and-environments)
+- [conditionals](#conditionals)
 
 ## cache dependencies with the cache action
 
@@ -62,4 +63,11 @@ jobs:
         login-server: ${{env.IMAGE_REGISTRY_URL}}
         username: ${{ var.GITHUB_USER }}
         password: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## conditionals
+
+```yaml
+# pull request labels
+if: contains(github.event.pull_request.labels.*.name, 'spin up environment')
 ```
