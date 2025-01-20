@@ -5,7 +5,7 @@
 - [cache dependencies with the cache action](#cache-dependencies-with-the-cache-action)
 - [pass artifact data between jobs](#pass-artifact-data-between-jobs)
 - [enable step debug logging in a workflow](#enable-step-debug-logging-in-a-workflow)
-- [use variables and secrets](#use-variables-and-secrets)
+- [use variables and secrets and environments](#use-variables-and-secrets-and-environments)
 
 ## cache dependencies with the cache action
 
@@ -54,12 +54,12 @@ jobs:
 - To enable runner diagnostic logging, set the ACTIONS_RUNNER_DEBUG secret in the repository that contains the workflow to true.
 - To enable step diagnostic logging, set the ACTIONS_STEP_DEBUG secret in the repository that contains the workflow to true.
 
-## use variables and secrets
+## use variables and secrets and environments
 
 ```yaml
 - uses: azure/docker-login@v1
       with:
         login-server: ${{env.IMAGE_REGISTRY_URL}}
-        username: ${{ github.actor }}
+        username: ${{ var.GITHUB_USER }}
         password: ${{ secrets.GITHUB_TOKEN }}
 ```
