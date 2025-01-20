@@ -5,6 +5,7 @@
 - [cache dependencies with the cache action](#cache-dependencies-with-the-cache-action)
 - [pass artifact data between jobs](#pass-artifact-data-between-jobs)
 - [enable step debug logging in a workflow](#enable-step-debug-logging-in-a-workflow)
+- [use secrets](#use-secrets)
 
 ## cache dependencies with the cache action
 
@@ -52,3 +53,13 @@ jobs:
 
 - To enable runner diagnostic logging, set the ACTIONS_RUNNER_DEBUG secret in the repository that contains the workflow to true.
 - To enable step diagnostic logging, set the ACTIONS_STEP_DEBUG secret in the repository that contains the workflow to true.
+
+## use secrets
+
+```yaml
+steps:
+      - name: "Login via Azure CLI"
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+```
