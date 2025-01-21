@@ -7,6 +7,8 @@
 - [enable step debug logging in a workflow](#enable-step-debug-logging-in-a-workflow)
 - [use variables and secrets and environments](#use-variables-and-secrets-and-environments)
 - [conditionals](#conditionals)
+- [specials](#specials)
+- [github script](#github-script)
 
 ## cache dependencies with the cache action
 
@@ -70,4 +72,46 @@ jobs:
 ```yaml
 # pull request labels
 if: contains(github.event.pull_request.labels.*.name, 'spin up environment')
+```
+
+## specials
+
+```yaml
+# treat everything inside raw/emdraw as not to be interpreted by a template engine
+github-token: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
+```
+
+## github script
+
+```yaml
+name: GitHub Script examples
+on:
+  issues:
+    types: [opened]
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Comment on new issue
+      uses: actions/github-script@0.8.0
+      with:
+        github-token: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
+        script: |
+            github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: "🎉 You've created this issue comment using GitHub Script!!!"
+            })
+    - name: Add issue to project board
+      if: contains(github.event.issue.labels.*.name, 'bug')
+      uses: actions/github-script@0.8.0
+      with:
+        github-token: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
+        script: |
+            github.projects.createCard({
+            column_id: {{columnID}},
+            content_id: context.payload.issue.id,
+            content_type: "Issue"
+            });
 ```
