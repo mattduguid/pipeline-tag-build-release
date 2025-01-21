@@ -9,6 +9,7 @@
 - [conditionals](#conditionals)
 - [specials](#specials)
 - [github script](#github-script)
+- [message logging](message-logging)
 
 ## cache dependencies with the cache action
 
@@ -114,4 +115,17 @@ jobs:
             content_id: context.payload.issue.id,
             content_type: "Issue"
             });
+```
+
+## message logging
+
+```yaml
+- name: workflow commands logging messages
+  run: |
+    echo "::debug::This is a debug message"
+    echo "This is an info message"
+    echo "::error::This is an error message"
+    echo "::warning::This is a warning message"
+    echo "::error file=app.js,line=10,col=15::Something went wrong"
+    echo "multiline message%0This text spans%0Aacross multiple lines"
 ```
