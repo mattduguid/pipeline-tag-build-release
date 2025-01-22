@@ -61,11 +61,20 @@ jobs:
 ## use variables and secrets and environments
 
 ```yaml
+# secret as input
 - uses: azure/docker-login@v1
       with:
         login-server: ${{env.IMAGE_REGISTRY_URL}}
         username: ${{ var.GITHUB_USER }}
         password: ${{ secrets.GITHUB_TOKEN }}
+
+# secret as input or env var
+steps:
+  - name: Hello world action
+    with: # Set the secret as an input
+      super_secret: ${{ secrets.SuperSecret }}
+    env: # Or as an environment variable
+      super_secret: ${{ secrets.SuperSecret }} 
 ```
 
 ## conditionals
