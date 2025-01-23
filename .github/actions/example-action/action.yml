@@ -1,0 +1,21 @@
+name: Example Action
+description: This is a reusable action
+
+inputs:
+  name:
+    description: 'Name of the user'
+    required: true
+    default: 'World'
+
+outputs:
+  greeting:
+    description: 'The greeting message'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Say Hello
+      run: echo "Hello, ${{ inputs.name }}!" > greeting.txt
+    - name: Set output
+      id: set-output
+      run: echo "greeting=${{ inputs.name }}" >> $GITHUB_ENV
