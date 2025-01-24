@@ -1,4 +1,4 @@
-name: Pipeline Main
+name: Workflow Main
 
 on:
   # allow manual triggering
