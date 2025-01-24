@@ -1,10 +1,10 @@
-[![Pipeline Main](https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml/badge.svg)](https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml)
+[![workflow Main](https://github.com/mattduguid/workflow-tag-build-release/actions/workflows/workflow.yml/badge.svg)](https://github.com/mattduguid/workflow-tag-build-release/actions/workflows/workflow.yml)
 
-# pipeline-tag-build-release
+# workflow-tag-build-release
 
 ## description
 
-example pipeline to release a container to cloud with infrastructure provisioned with terraform
+example workflow to release a container to cloud with infrastructure provisioned with terraform
 
 - workflow: tag
   - generate a unique tag for container tag, terraform, etc
@@ -17,13 +17,13 @@ example pipeline to release a container to cloud with infrastructure provisioned
 
 ### workflow run and runs
 
-https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml
+https://github.com/mattduguid/workflow-tag-build-release/actions/workflows/workflow.yml
 
 ## API
 
 ### workflow run execute
 - verb/url
-  - POST https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/workflows/pipeline.yml/dispatches
+  - POST https://api.github.com/repos/mattduguid/workflow-tag-build-release/actions/workflows/workflow.yml/dispatches
 - headers
   - Accept: application/vnd.github+json
   - Authorization: token <PAT_TOKEN>
@@ -38,7 +38,7 @@ https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipel
 ### workflow runs view
 
 - verb/url
-  - GET https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/runs
+  - GET https://api.github.com/repos/mattduguid/workflow-tag-build-release/actions/runs
 - headers
   - Accept: application/vnd.github+json
   - Authorization: token <PAT_TOKEN>
@@ -46,7 +46,7 @@ https://github.com/mattduguid/pipeline-tag-build-release/actions/workflows/pipel
 ### workflow run delete
 
 - verb/url
-  - DELETE https://api.github.com/repos/mattduguid/pipeline-tag-build-release/actions/runs/{run_id}
+  - DELETE https://api.github.com/repos/mattduguid/workflow-tag-build-release/actions/runs/{run_id}
 - headers
   - Accept: application/vnd.github+json
   - Authorization: token <PAT_TOKEN>
