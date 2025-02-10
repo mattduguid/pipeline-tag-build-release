@@ -1,0 +1,12 @@
+name: "Default CodeQL Config"
+version: 2.0.0
+queries:
+  - uses: security-and-quality
+paths-ignore:
+  - "vendor/"
+  - "node_modules/"
+  - "third_party/"
+  - "dist/"
+  - "build/"
+  - "docs/"
+  - "**/*.md"
